@@ -1,13 +1,10 @@
----
 applications:
-- name: mean
-  host: mean-${random-word}
-  memory: 256M
+- path: .
+  memory: 512M
+  instances: 1
+  domain: stage1.mybluemix.net
+  name: RuleDashboard
+  host: RuleDashboard
+  disk_quota: 1024M
   services:
-  - mean-mongo
-  env:
-    NODE_ENV: cloud-foundry
-declared-services:
-  mean-mongo:
-    label: mongodb
-    plan: 100
+  - RuleDashboard-mongodb
